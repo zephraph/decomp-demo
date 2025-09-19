@@ -13,3 +13,11 @@ This repo is meant as a demonstration of common git workflow challenges
 • Use meaningful branch names that describe the feature or fix
 • Pull/rebase frequently to stay up-to-date with main branch
 • Squash or clean up messy commit history before merging
+
+## Goals
+
+1. Checkout the `all-changes` branch
+2. Make test setup and counter refactor into a stacked PR
+3. Squash the Refactor and WIP commits into one commit
+4. Pull the license change out into a completely separate PR
+5. Resolve conflicts with main
