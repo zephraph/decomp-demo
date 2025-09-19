@@ -1,24 +1,26 @@
-import { render, screen, fireEvent } from '@testing-library/react'
-import { describe, it, expect } from 'vitest'
-import App from './App'
+import { render, screen } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
+import App from "./App";
 
-describe('App', () => {
-  it('should increment count when button is clicked', () => {
-    render(<App />)
+describe("App", () => {
+  it("should render the main heading", () => {
+    render(<App />);
 
-    const button = screen.getByRole('button', { name: /count is 0/i })
-    expect(button).toBeInTheDocument()
+    expect(screen.getByText("Vite + React")).toBeInTheDocument();
+  });
 
-    fireEvent.click(button)
-    expect(screen.getByRole('button', { name: /count is 1/i })).toBeInTheDocument()
+  it("should render the Count component", () => {
+    render(<App />);
 
-    fireEvent.click(button)
-    expect(screen.getByRole('button', { name: /count is 2/i })).toBeInTheDocument()
-  })
+    expect(
+      screen.getByRole("button", { name: /count is 0/i }),
+    ).toBeInTheDocument();
+  });
 
-  it('should start with count of 0', () => {
-    render(<App />)
+  it("should render logos", () => {
+    render(<App />);
 
-    expect(screen.getByRole('button', { name: /count is 0/i })).toBeInTheDocument()
-  })
-})
+    expect(screen.getByAltText("Vite logo")).toBeInTheDocument();
+    expect(screen.getByAltText("React logo")).toBeInTheDocument();
+  });
+});
